@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class Node {
     int data;
     Node next;
@@ -17,14 +19,6 @@ class LinkedList {
         head = newNode;
     }
 
-    public void printList() {
-        Node currNode = head;
-        while (currNode != null) {
-            System.out.print(currNode.data + " ");
-            currNode = currNode.next;
-        }
-    }
-
     public void insertion_at_end(int data) {
         Node newNode = new Node(data);
         if (head == null) {
@@ -38,6 +32,16 @@ class LinkedList {
         last.next = newNode;
     }
 
+    public void display() {
+        System.out.print("Linked List: ");
+        Node currNode = head;
+        while (currNode != null) {
+            System.out.print(currNode.data + " ");
+            currNode = currNode.next;
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
         list.addNode(4);
@@ -45,15 +49,12 @@ class LinkedList {
         list.addNode(2);
         list.addNode(1);
 
-        System.out.println("Linked List: ");
-        list.printList();
-
         int choice = 0;
         Scanner in = new Scanner(System.in);
         while (choice != 4) {
             System.out.println("\n1. Insert node at the end of the list");
             System.out.println("2. Insert node at the start of the list");
-            System.out.println("3. Insert node at a specific position");
+            System.out.println("3. Display Linked List");
             System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
             choice = in.nextInt();
@@ -62,14 +63,12 @@ class LinkedList {
                     System.out.print("Enter data for new node: ");
                     int data = in.nextInt();
                     list.insertion_at_end(data);
-                    System.out.println("Linked List after inserting node at end: ");
-                    list.printList();
                     break;
                 case 2:
                     System.out.println("Inserting node at start is already implemented.");
                     break;
                 case 3:
-                    System.out.println("Inserting node at a specific position is not implemented yet.");
+                    list.display();
                     break;
                 case 4:
                     System.out.println("Exiting...");
