@@ -70,13 +70,3 @@ class LinkedList {
                 case 3:
                     list.display();
                     break;
-                case 4:
-                    System.out.println("Exiting...");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        }
-        in.close();
-    }
-}
